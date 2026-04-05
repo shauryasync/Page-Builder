@@ -8,7 +8,7 @@ function TextBlock({ block, setBlocks }) {
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow-sm">
+    <div className="bg-white p-4 rounded shadow-sm hover:shadow-md transition">
       <textarea
         className="w-full outline-none"
         placeholder="Write something..."
