@@ -1,5 +1,13 @@
-function HeaderBlock({ block, setBlocks }) {
-  const handleTextChange = (e) => {
+export default function HeaderBlock({ block, setBlocks }) {
+  const toggleEdit = () => {
+    setBlocks((prev) =>
+      prev.map((b) =>
+        b.id === block.id ? { ...b, isEditing: !b.isEditing } : b,
+      ),
+    );
+  };
+
+  const handleChange = (e) => {
     const value = e.target.value;
 
     setBlocks((prev) =>
@@ -7,39 +15,27 @@ function HeaderBlock({ block, setBlocks }) {
     );
   };
 
-  const handleLevelChange = (e) => {
-    const level = e.target.value;
-
-    setBlocks((prev) =>
-      prev.map((b) => (b.id === block.id ? { ...b, level } : b)),
-    );
-  };
-
   const Tag = block.level || "h2";
 
   return (
     <div className="bg-white p-4 rounded shadow-sm space-y-2">
-      <select
-        value={block.level || "h2"}
-        onChange={handleLevelChange}
-        className="border p-1 rounded"
-      >
-        <option value="h1">H1</option>
-        <option value="h2">H2</option>
-        <option value="h3">H3</option>
-      </select>
-
-      <input
-        type="text"
-        placeholder="Enter heading..."
-        value={block.content}
-        onChange={handleTextChange}
-        className="w-full outline-none font-bold"
-      />
-
-      <Tag>{block.content || "Preview heading..."}</Tag>
+      {block.isEditing ? (
+        <>
+          <input
+            value={block.content}
+            onChange={handleChange}
+            placeholder="Enter heading..."
+            className="w-full border p-2 rounded"
+          />
+          <button onClick={toggleEdit} className="text-sm text-blue-500">
+            Done
+          </button>
+        </>
+      ) : (
+        <div onClick={toggleEdit}>
+          <Tag>{block.content || "Click to edit heading"}</Tag>
+        </div>
+      )}
     </div>
   );
 }
-
-export default HeaderBlock;
