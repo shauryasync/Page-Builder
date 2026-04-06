@@ -17,28 +17,28 @@ function Sidebar({ setBlocks }) {
       <div className="space-y-2">
         <button
           onClick={() => addBlock("text")}
-          className="flex items-center gap-2 w-full text-left p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
+          className="flex items-center gap-2 w-full p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
         >
           Text Block
         </button>
 
         <button
           onClick={() => addBlock("header")}
-          className="flex items-center gap-2 w-full text-left p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
+          className="flex items-center gap-2 w-full p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
         >
           Header Block
         </button>
 
         <button
           onClick={() => addBlock("image")}
-          className="flex items-center gap-2 w-full text-left p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
+          className="flex items-center gap-2 w-full p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
         >
           Image Block
         </button>
 
         <button
           onClick={() => addBlock("markdown")}
-          className="flex items-center gap-2 w-full text-left p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
+          className="flex items-center gap-2 w-full p-2 rounded-lg hover:bg-indigo-50 transition text-slate-600"
         >
           Markdown Block
         </button>

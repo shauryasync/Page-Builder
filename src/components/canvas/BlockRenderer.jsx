@@ -35,10 +35,18 @@ function BlockRenderer({ block, setBlocks }) {
   }
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      className="transition-all duration-200 hover:scale-[1.01]"
+    >
       {/* Drag Handle */}
-      <div {...listeners} className="cursor-grab text-gray-400 mb-1">
-        ☰ Drag
+      <div
+        {...listeners}
+        className="cursor-grab text-slate-400 mb-1 hover:text-indigo-500 transition"
+      >
+        ⋮⋮
       </div>
 
       <Component block={block} setBlocks={setBlocks} />

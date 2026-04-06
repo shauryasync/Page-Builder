@@ -26,8 +26,16 @@ function Canvas({ blocks, setBlocks }) {
     <div className="ml-64 flex-1 p-10">
       <div className="max-w-3xl mx-auto space-y-6">
         {blocks.length === 0 && (
-          <div className="border-2 border-dashed p-10 text-center rounded-lg text-gray-500">
-            Start building your page...
+          <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-slate-300 rounded-2xl bg-white/60">
+            <div className="text-4xl mb-3">✨</div>
+
+            <p className="font-medium text-slate-600">
+              Start building your page
+            </p>
+
+            <p className="text-sm text-slate-400 mt-1">
+              Add blocks from the sidebar
+            </p>
           </div>
         )}
 
