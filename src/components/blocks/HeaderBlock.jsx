@@ -18,7 +18,7 @@ export default function HeaderBlock({ block, setBlocks }) {
   const Tag = block.level || "h2";
 
   return (
-    <div className="bg-white p-4 rounded shadow-sm space-y-2">
+    <div className="relative bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-lg transition">
       {block.isEditing ? (
         <>
           <input
@@ -36,6 +36,17 @@ export default function HeaderBlock({ block, setBlocks }) {
           <Tag>{block.content || "Click to edit heading"}</Tag>
         </div>
       )}
+      <Tag className="text-2xl font-bold text-slate-800">
+        {block.content || "Heading"}
+      </Tag>
+      <button
+        onClick={() =>
+          setBlocks((prev) => prev.filter((b) => b.id !== block.id))
+        }
+        className="absolute top-3 right-3 text-slate-400 hover:text-red-500 transition"
+      >
+        ✕
+      </button>
     </div>
   );
 }

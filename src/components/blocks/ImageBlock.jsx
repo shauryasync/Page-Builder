@@ -8,7 +8,7 @@ function ImageBlock({ block, setBlocks }) {
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow-sm space-y-2">
+    <div className="relative bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-lg transition">
       <input
         type="text"
         placeholder="Paste image URL..."
@@ -20,6 +20,14 @@ function ImageBlock({ block, setBlocks }) {
       {block.content && (
         <img src={block.content} alt="preview" className="w-full rounded" />
       )}
+      <button
+        onClick={() =>
+          setBlocks((prev) => prev.filter((b) => b.id !== block.id))
+        }
+        className="absolute top-3 right-3 text-slate-400 hover:text-red-500 transition"
+      >
+        ✕
+      </button>
     </div>
   );
 }

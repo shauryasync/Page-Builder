@@ -10,7 +10,7 @@ function MarkdownBlock({ block, setBlocks }) {
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow-sm space-y-4">
+    <div className="relative bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-lg transition">
       <textarea
         placeholder="Write markdown..."
         value={block.content}
@@ -20,6 +20,14 @@ function MarkdownBlock({ block, setBlocks }) {
 
       <div className="prose">
         <ReactMarkdown>{block.content}</ReactMarkdown>
+        <button
+          onClick={() =>
+            setBlocks((prev) => prev.filter((b) => b.id !== block.id))
+          }
+          className="absolute top-3 right-3 text-slate-400 hover:text-red-500 transition"
+        >
+          ✕
+        </button>
       </div>
     </div>
   );
